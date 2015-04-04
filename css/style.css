@@ -26,3 +26,61 @@ body {
     font-size: 144px;
     color: #87214C;
 }
+
+.form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 50vw;
+}
+
+.form__prompt {
+    font-size: 24px;
+    line-height: 150%;
+    font-weight: 500;
+}
+
+.form input[type="text"] {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px dashed #a24069;
+    margin: 10px 0 50px 0;
+    color: #87214C;
+    font-size: 36px;
+    font-weight: 700;
+    width: 100%;
+}
+
+::-webkit-input-placeholder {
+    color:    #a24069;
+}
+:-moz-placeholder {
+    color:    #a24069;
+}
+::-moz-placeholder {
+    color:    #a24069;
+}
+:-ms-input-placeholder {
+    color:    #a24069;
+}
+
+*:focus {
+    outline: 0;
+}
+
+.form input[type="submit"] {
+    display: block;
+    background-color: #a24069;
+    height: 50px;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #87214C;
+    cursor: pointer;
+}

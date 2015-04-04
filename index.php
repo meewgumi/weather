@@ -74,7 +74,7 @@ echo "</div>";
   <input type="text" name="location" placeholder="Address or zip code" />
   <div class="form__prompt">Sweater weather is below:</div>
   <input type="text" name="temperature" placeholder="55&#176; F" />
-  <input type="submit" />
+  <input type="submit" value="Do I need a sweater?" />
   </form>
   </div>
 </body>
