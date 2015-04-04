@@ -1,7 +1,18 @@
+<!DOCTYPE html>
+   <html>
+    <head>
+        <title>Do I need a sweater?</title>
+         <meta name="description" content="Find out if you need a sweater without going outside." />
+         <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+<body>
+<div class="forecast">
 <?php
 date_default_timezone_set('America/Los_Angeles');
 
 require_once 'lib/Forecast.php';
+
+$question = "Do I need a sweater?";
 
 /**
  * Get GPS coordinates from location string using the Google Maps API
@@ -34,12 +45,20 @@ $response = $forecast->getData($latitude, $longitude);
 $currently = $response->getCurrently();
 $time = date("h:i A", $currently->getTime());
 $temp = number_format($currently->getTemperature(), 0);
-echo "Temperature in $city, $state at $time: $temp&#8457;<br />\n";
+echo "<div class=\"forecast__location\">$city, $state</div>";
+echo "<div class=\"forecast__question\">$question</div>";
 
+echo "<div class=\"forecast--answer\">";
 
-$minimum = $currently->getTemperatureMinTime();
-echo "Tonight's low: $minimum&#8457;<br />\n";
+if ($temp >= 55) {
+    echo "NO";
+} else {
+    echo "YES";
+}
 
-$icon = $currently->getIcon();
-echo "$icon"
+echo "</div>";
+
 ?>
+</div>
+</body>
+</html>
