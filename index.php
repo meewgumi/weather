@@ -6,6 +6,7 @@
          <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
 <body>
+
 <div class="forecast">
 <?php
 date_default_timezone_set('America/Los_Angeles');
@@ -36,9 +37,14 @@ function geoLocate($addr)
   );
 }
 
-list($latitude, $longitude, $city, $state) = geoLocate('94107');
+/**
+ * Show YES/NO output for form input
+ *
+ */
 
-
+       if( $_GET["location"] || $_GET["temperature"] )
+  {
+     list($latitude, $longitude, $city, $state) = geoLocate($_GET["location"]);       
 // Make request to the API for the current forecast
 $forecast  = new Forecast('2b38343bfe06085955dff3a788734678');
 $response = $forecast->getData($latitude, $longitude);
@@ -50,15 +56,26 @@ echo "<div class=\"forecast__question\">$question</div>";
 
 echo "<div class=\"forecast--answer\">";
 
-if ($temp >= 55) {
+if ($temp >= $_GET["temperature"]) {
     echo "NO";
 } else {
     echo "YES";
 }
 
 echo "</div>";
+     exit();
+  }
 
 ?>
 </div>
+<div class="form">
+  <form action="<?php $_PHP_SELF ?>" method="GET">
+  <div class="form__prompt">Where are you?</div>
+  <input type="text" name="location" placeholder="Address or zip code" />
+  <div class="form__prompt">Sweater weather is below:</div>
+  <input type="text" name="temperature" placeholder="55&#176; F" />
+  <input type="submit" />
+  </form>
+  </div>
 </body>
 </html>
