@@ -91,3 +91,16 @@ body {
     background-color: #87214C;
     cursor: pointer;
 }
+
+@media (max-width: 900px) {
+    
+    .forecast {
+    max-width: 100%;
+    padding: 2vh;
+    }
+    
+    .form {
+        max-width: 80%;
+    }
+}
+    

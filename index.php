@@ -68,7 +68,7 @@ if( $_GET["location"] || $_GET["temperature"] )
 <div class="form">
   <form action="<?php $_PHP_SELF ?>" method="GET">
   <div class="form__prompt">Where are you?</div>
-  <input type="text" name="location" placeholder="Address or zip code" />
+  <input type="text" name="location" placeholder="Address or zip" />
   <div class="form__prompt">Sweater weather is below:</div>
   <input type="text" name="temperature" placeholder="55&#176; F" />
   <input type="submit" value="Do I need a sweater?" />
