@@ -63,26 +63,6 @@ if( $_GET["location"] || $_GET["temperature"] )
     echo "</div>";
     exit();
     }
-
-else {
-    list($latitude, $longitude, $city, $state) = geoLocate('94107');       
-    // Make request to the API for the current forecast
-    $forecast  = new Forecast('2b38343bfe06085955dff3a788734678');
-    $response = $forecast->getData($latitude, $longitude);
-    $currently = $response->getCurrently();
-    $time = date("h:i A", $currently->getTime());
-    $temp = number_format($currently->getTemperature(), 0);
-    echo "<div class=\"forecast__location\">$city, $state</div>";
-    echo "<div class=\"forecast__question\">$question</div>";
-    echo "<div class=\"forecast--answer\">";
-    if ($temp >= 55) {
-    echo "NO";
-    } else {
-    echo "YES";
-    }
-    echo "</div>";
-    exit();
-}
 ?>
 </div>
 <div class="form">
